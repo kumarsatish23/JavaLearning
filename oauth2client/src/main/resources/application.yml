@@ -1,0 +1,30 @@
+
+server:
+  port: 9090
+  servlet:
+    session:
+      cookie:
+       name: UISESSION
+        
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          custom-client:
+            client-id: clientapp
+            client-secret: welcometovanna
+            client-name: Auth Server
+            scope: user_info
+            provider: custom-provider
+            redirect-uri: http://localhost:9090/login/oauth2/code/
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+        provider:
+          custom-provider:
+            token-uri: http://localhost:8080/oauth/token
+            authorization-uri: http://localhost:8080/oauth/authorize
+            user-info-uri: http://localhost:8080/user/me
+            user-name-attribute: name

@@ -1,0 +1,10 @@
+
+body {
+  height: 100%;
+  padding-top: 10px;
+}
+
+.form-group {
+  max-width: 250px;
+  margin: auto;
+}
